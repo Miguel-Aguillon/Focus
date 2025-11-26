@@ -1,5 +1,4 @@
-<!-- index.html -->
-<!doctype html>
+<!Doctype html>
 <html lang="es">
 <head>
   <meta charset="utf-8" />
@@ -23,8 +22,8 @@
   <header class="hero">
     <div class="container hero-inner">
       <div class="hero-text">
-        <h1>Construye algo hermoso<br /><span>con simplicidad y estilo</span></h1>
-        <p>Landing minimalista, enfocada en conversión y lectura clara. Diseño limpio en tonos azul pastel, blanco y negro.</p>
+        <h1>Te ayudamos<br /><span>a no procastinar</span></h1>
+        <p>Somos una herramienta que busca mejorar la calidad de vida de todos</p>
         <div class="hero-cta">
           <a class="btn btn-primary" href="#features">Comenzar</a>
           <a class="btn btn-secondary" href="#about">Saber más</a>
@@ -32,7 +31,7 @@
       </div>
       <div class="hero-card">
         <div class="phone-mock">
-          <div class="screen">Tu producto aquí</div>
+          <div class="screen">Agregar foto</div>
         </div>
       </div>
     </div>
@@ -44,16 +43,16 @@
         <h2 class="section-title">Qué ofrecemos</h2>
         <div class="grid">
           <article class="card">
-            <h3>Rápido</h3>
-            <p>Implementación ágil para que lances tu idea en tiempo récord.</p>
+            <h3>Tiempo</h3>
+            <p>Implementación ágil para que alcances tus objetivos en tiempo récord.</p>
           </article>
           <article class="card">
-            <h3>Seguro</h3>
-            <p>Buenas prácticas y atención a la privacidad y la seguridad.</p>
+            <h3>Productividad</h3>
+            <p>Buenas prácticas y atención .</p>
           </article>
           <article class="card">
-            <h3>Elegante</h3>
-            <p>Diseños limpios y atractivos que conectan con tu público.</p>
+            <h3>Actividad</h3>
+            <p>Controla tus disciplina.</p>
           </article>
         </div>
       </div>
@@ -63,7 +62,7 @@
       <div class="container about-inner">
         <div class="about-text">
           <h2>Acerca de nosotros</h2>
-          <p>Somos un equipo pequeño que cree en el poder del diseño claro y la ejecución eficiente. Nos enfocamos en resultados medibles y en experiencias memorables.</p>
+          <p>Somos un equipo pequeño que cree en el poder la disciplina. Nos enfocamos en resultados medibles y en experiencias memorables.</p>
           <a class="btn btn-outline" href="#contact">Hablemos</a>
         </div>
         <div class="about-image">
@@ -87,7 +86,7 @@
 
   <footer class="footer">
     <div class="container footer-inner">
-      <p>© <span id="year"></span> MiMarca. Todos los derechos reservados.</p>
+      <p>© <span id="year"></span> Focus. Todos los derechos reservados.</p>
       <div class="socials">
         <a href="#">Twitter</a>
         <a href="#">LinkedIn</a>
