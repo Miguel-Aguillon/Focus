@@ -4,14 +4,13 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Landing - Azul Pastel</title>
+  <title>Focus - Inicio</title>
 <link rel="stylesheet" href="<?= base_url('css/style.css') ?>">
-
 </head>
 <body>
   <nav class="nav">
     <div class="container nav-inner">
-      <a class="logo" href="#">MiMarca</a>
+      <a class="logo" href="#">Focus</a>
       <ul class="nav-links">
         <li><a href="#features">Servicios</a></li>
         <li><a href="#about">Acerca</a></li>
