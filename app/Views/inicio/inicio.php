@@ -5,6 +5,7 @@
   <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Focus - Inicio</title>
 <link rel="stylesheet" href="<?= base_url('css/style.css') ?>">
+<link rel="shortcut icon" href="<?= base_url('img/favicon.png') ?>"type="image/x-icon">
 </head>
 <body>
   <nav class="nav">
