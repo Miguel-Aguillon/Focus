@@ -5,7 +5,7 @@ namespace App\Controllers;
 class Retos extends BaseController{
 
     public function Retos(){
-        return view('/retos/restos');
+        return view('/retos/retos');
         
     }
 }

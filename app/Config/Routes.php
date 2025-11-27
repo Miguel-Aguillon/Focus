@@ -39,3 +39,14 @@ $routes->get('/perfil','Perfil::perfil');
 
 //Registro
 $routes->get('/registro','Registro::registro');
+
+// Rutas dek menú
+$routes->get('/categorias', 'Opciones::categorias');
+$routes->get('/niveles', 'Opciones::niveles');
+$routes->get('/retos', 'Opciones::retos');
+$routes->get('/logros', 'Opciones::logros');
+$routes->get('/lecciones', 'Opciones::lecciones');
+$routes->get('/perfil', 'Usuarios::perfil');
+$routes->get('/registro', 'Auth::registro');
+$routes->get('/login', 'Auth::login');
+$routes->get('/configuracion', 'Usuarios::configuracion');

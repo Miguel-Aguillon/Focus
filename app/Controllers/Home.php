@@ -8,4 +8,18 @@ class Home extends BaseController
     {
         return view('welcome_message');
     }
+     public function servicios()
+    {
+        return view('servicios');
+    }
+
+    public function acerca()
+    {
+        return view('acerca');
+    }
+
+    public function contacto()
+    {
+        return view('contacto');
+    }
 }
