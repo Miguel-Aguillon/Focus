@@ -41,23 +41,319 @@
 
 
     <!-- Botón Contacto -->
-    <a href="#contacto" class="btn-contacto">Contáctanos</a>
-  </div>
-</nav>
+   <!DOCTYPE html>
+<html lang="es">
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
+  <title>Slider de imágenes</title>
+  <style>
+    /* Contenedor general del slider */
+    .slider-container {
+      position: relative;
+      width: 100%;
+      max-width: 900px;
+      margin: auto;
+      overflow: hidden;
+      border: 1px solid #ccc;
+      border-radius: 8px;
+    }
 
-<div class="slider-container">
-    <div class="slider-wrapper" id="slider">
-        <img src="/public/images/slide1.jpg" alt="Imagen 1">
-        <img src="/public/images/slide2.jpg" alt="Imagen 2">
-        <img src="/public/images/slide3.jpg" alt="Imagen 3">
-        <!-- Añade más <img> si quieres -->
+    /* Wrapper de las imágenes (flex para slider horizontal) */
+    .slider-wrapper {
+      display: flex;
+      width: 100%;
+      transition: transform 0.5s ease-in-out;
+    }
+
+    /* Cada imagen ocupa todo el ancho del contenedor */
+    .slider-wrapper img {
+      width: 100%;
+      flex-shrink: 0;
+      user-select: none;
+      pointer-events: none;
+    }
+
+    /* Botones para controlar slider */
+    .slider-btn {
+      position: absolute;
+      top: 50%;
+      transform: translateY(-50%);
+      background: rgba(0, 0, 0, 0.5);
+      color: white;
+      border: none;
+      padding: 12px 18px;
+      font-size: 30px;
+      cursor: pointer;
+      border-radius: 5px;
+      user-select: none;
+      z-index: 10;
+    }
+
+    #prevBtn {
+      left: 10px;
+    }
+
+    #nextBtn {
+      right: 10px;
+    }
+
+    /* Contenedor de puntitos */
+    .slider-dots {
+      display: flex;
+      justify-content: center;
+      margin-top: 15px;
+    }
+
+    /* Cada puntito */
+    .slider-dots span {
+      width: 14px;
+      height: 14px;
+      background: #bbb;
+      border-radius: 50%;
+      margin: 0 6px;
+      cursor: pointer;
+      transition: background 0.3s;
+    }
+
+    /* Puntito activo */
+    .slider-dots .active {
+      background: #333;
+    }
+  </style>
+</head>
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi sitio</title>
+
+    <!-- ===== CSS ===== -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Slider de imágenes */
+        .slider-container {
+            position: relative;
+            width: 80%;
+            max-width: 900px;
+            margin: 50px auto;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            background: #fff;
+        }
+
+        .slider-wrapper {
+            display: flex;
+            width: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slider-wrapper img {
+            width: 100%;
+            flex-shrink: 0;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            font-size: 30px;
+            cursor: pointer;
+            border-radius: 5px;
+            user-select: none;
+            z-index: 10;
+        }
+
+        #prevBtn { left: 10px; }
+        #nextBtn { right: 10px; }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            margin: 15px 0;
+        }
+
+        .slider-dots span {
+            width: 14px;
+            height: 14px;
+            background: #bbb;
+            border-radius: 50%;
+            margin: 0 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .slider-dots .active {
+            background: #333;
+        }
+    </style>
+</head>
+
+
+<!DOCTYPE html>
+<html lang="es">
+<head>
+    <meta charset="UTF-8">
+    <title>Mi sitio</title>
+
+    <!-- ===== CSS ===== -->
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background: #f2f2f2;
+            margin: 0;
+            padding: 0;
+        }
+
+        /* Slider de imágenes */
+        .slider-container {
+            position: relative;
+            width: 80%;
+            max-width: 900px;
+            margin: 50px auto;
+            overflow: hidden;
+            border-radius: 8px;
+            box-shadow: 0 4px 15px rgba(0,0,0,0.2);
+            background: #fff;
+        }
+
+        .slider-wrapper {
+            display: flex;
+            width: 100%;
+            transition: transform 0.5s ease-in-out;
+        }
+
+        .slider-wrapper img {
+            width: 100%;
+            flex-shrink: 0;
+            user-select: none;
+            pointer-events: none;
+        }
+
+        .slider-btn {
+            position: absolute;
+            top: 50%;
+            transform: translateY(-50%);
+            background: rgba(0, 0, 0, 0.5);
+            color: white;
+            border: none;
+            padding: 12px 18px;
+            font-size: 30px;
+            cursor: pointer;
+            border-radius: 5px;
+            user-select: none;
+            z-index: 10;
+        }
+
+        #prevBtn { left: 10px; }
+        #nextBtn { right: 10px; }
+
+        .slider-dots {
+            display: flex;
+            justify-content: center;
+            margin: 15px 0;
+        }
+
+        .slider-dots span {
+            width: 14px;
+            height: 14px;
+            background: #bbb;
+            border-radius: 50%;
+            margin: 0 6px;
+            cursor: pointer;
+            transition: background 0.3s;
+        }
+
+        .slider-dots .active {
+            background: #333;
+        }
+    </style>
+</head>
+<body>
+
+    <h1 style="text-align:center; margin-top:30px;">Bienvenido a mi sitio</h1>
+
+    <!-- ===== Slider de imágenes ===== -->
+    <div class="slider-container">
+        <div class="slider-wrapper" id="slider">
+            <img src="img/portada1.jpg" alt="Portada 1" />
+            <img src="img/portada2.jpg" alt="Portada 2" />
+            <img src="img/portada3.jpg" alt="Portada 3" />
+        </div>
+
+        <!-- Botones para navegar -->
+        <button class="slider-btn" id="prevBtn">&#10094;</button>
+        <button class="slider-btn" id="nextBtn">&#10095;</button>
+
+        <!-- Puntos -->
+        <div class="slider-dots" id="dots"></div>
     </div>
 
-    <button class="slider-btn" id="prevBtn" aria-label="Anterior">&#10094;</button>
-    <button class="slider-btn" id="nextBtn" aria-label="Siguiente">&#10095;</button>
+    <!-- ===== JavaScript ===== -->
+    <script>
+        const slider = document.getElementById("slider");
+        const prevBtn = document.getElementById("prevBtn");
+        const nextBtn = document.getElementById("nextBtn");
+        const dotsContainer = document.getElementById("dots");
+        const slides = slider.querySelectorAll("img");
+        let index = 0;
 
-    <div class="slider-dots" id="dots"></div>
-</div>
+        // Crear puntos
+        slides.forEach((_, i) => {
+            const dot = document.createElement("span");
+            if(i === 0) dot.classList.add("active");
+            dot.addEventListener("click", () => goToSlide(i));
+            dotsContainer.appendChild(dot);
+        });
+        const dots = dotsContainer.querySelectorAll("span");
+
+        // Actualizar slider
+        function updateSlider() {
+            slider.style.transform = `translateX(-${index * 100}%)`;
+            dots.forEach(dot => dot.classList.remove("active"));
+            dots[index].classList.add("active");
+        }
+
+        // Botones
+        function nextSlide() {
+            index = (index + 1) % slides.length;
+            updateSlider();
+        }
+
+        function prevSlide() {
+            index = (index - 1 + slides.length) % slides.length;
+            updateSlider();
+        }
+
+        function goToSlide(i) {
+            index = i;
+            updateSlider();
+        }
+
+        prevBtn.addEventListener("click", prevSlide);
+        nextBtn.addEventListener("click", nextSlide);
+
+        // Cambio automático cada 3 segundos
+        setInterval(nextSlide, 3000);
+    </script>
+
+</body>
+</html>
+
+
 
 <style>
 /* ===== Navbar general ===== */
@@ -246,17 +542,21 @@ document.addEventListener("DOMContentLoaded", () => {
 
 <div class="slider-container">
     <div class="slider-wrapper" id="slider">
-        <img src="/public/images/slide1.jpg" alt="Imagen 1">
-        <img src="/public/images/slide2.jpg" alt="Imagen 2">
-        <img src="/public/images/slide3.jpg" alt="Imagen 3">
+        <img src="img/portada1.jpg" alt="Portada 1" />
+        <img src="img/portada2.jpg" alt="Portada 2" />
+        <img src="img/portada3.jpg" alt="Portada 3" />
         <!-- Añade más <img> si quieres -->
     </div>
 
-    <button class="slider-btn" id="prevBtn" aria-label="Anterior">&#10094;</button>
-    <button class="slider-btn" id="nextBtn" aria-label="Siguiente">&#10095;</button>
 
-    <div class="slider-dots" id="dots"></div>
+      <!-- Botones para cambiar imagen -->
+  <button class="slider-btn" id="prevBtn">&#10094;</button>
+  <button class="slider-btn" id="nextBtn">&#10095;</button>
+
+  <!-- Puntos debajo del slider -->
+  <div class="slider-dots" id="dots"></div>
 </div>
+
 
         </div>
       </div>
