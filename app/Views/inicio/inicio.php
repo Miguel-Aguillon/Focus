@@ -3,40 +3,44 @@
 <head>
   <meta charset="utf-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Focus - Inicio</title>
+  <title>FOCUS - Inicio</title>
 <link rel="stylesheet" href="<?= base_url('css/style.css') ?>">
 <link rel="shortcut icon" href="<?= base_url('img/favicon.png') ?>"type="image/x-icon">
 </head>
 <body>
-  <!-- 🔹 Navbar principal -->
-   <nav class="navbar">
-  <div class="container">
-    <div class="logo">
-      <a href="<?= base_url('/') ?>">Focus</a>
-    </div>
+      <!-- correccion navbar -->
 
-    <ul class="nav-links">
-      <li><a href="<?= base_url('/') ?>">Inicio</a></li>
-      <li><a href="<?= base_url('servicios') ?>">Servicios</a></li>
-      <li><a href="<?= base_url('acerca') ?>">Acerca</a></li>
-      <li><a href="<?= base_url('contacto') ?>">Contacto</a></li>
+<nav class="navbar">
+    <div class="container">
+        
+        <!-- IZQUIERDA -->
+        <div class="logo">
+            <a href="<?= base_url('/') ?>">Focus</a>
+        </div>
 
-      <li class="dropdown">
-        <button class="dropdown-toggle" type="button">Más opciones ▾</button>
-        <ul class="dropdown-menu">
-          <li><a href="<?= base_url('categorias') ?>">Categorías</a></li>
-          <li><a href="<?= base_url('niveles') ?>">Niveles</a></li>
-          <li><a href="<?= base_url('retos') ?>">Retos</a></li>
-          <li><a href="<?= base_url('logros') ?>">Logros</a></li>
-          <li><a href="<?= base_url('lecciones') ?>">Lecciones</a></li>
-          <li><a href="<?= base_url('perfil') ?>">Perfil</a></li>
-          <li><a href="<?= base_url('registro') ?>">Registro</a></li>
-          <li><a href="<?= base_url('login') ?>">Login</a></li>
-          <li><a href="<?= base_url('configuracion') ?>">Configuración</a></li>
+        <!-- DERECHA -->
+        <ul class="nav-links">
+            <li><a href="<?= base_url('/') ?>">INICIO</a></li>
+            <li><a href="<?= base_url('servicios') ?>">SERVICIOS</a></li>
+            <li><a href="<?= base_url('acerca') ?>">ACERCA</a></li>
+            <li><a href="<?= base_url('contacto') ?>">CONTACTO</a></li>
+
+            <li class="dropdown">
+                <button class="dropdown-toggle">MENU ▾</button>
+                <ul class="dropdown-menu">
+                    <li><a href="<?= base_url('categorias') ?>">CATEGORÍAS</a></li>
+                    <li><a href="<?= base_url('niveles') ?>">NIVELES</a></li>
+                    <li><a href="<?= base_url('retos') ?>">RETOS</a></li>
+                    <li><a href="<?= base_url('logros') ?>">LOGROS</a></li>
+                    <li><a href="<?= base_url('lecciones') ?>">LECCIONES</a></li>
+                    <li><a href="<?= base_url('perfil') ?>">PERFIL</a></li>
+                    <li><a href="<?= base_url('registro') ?>">REGISTRO</a></li>
+                    <li><a href="<?= base_url('login') ?>">LOGIN</a></li>
+                    <li><a href="<?= base_url('configuracion') ?>">CONFIGURACIÓN</a></li>
+                </ul>
+            </li>
         </ul>
-      </li>
-    </ul>
-  </div>
+    </div>
 </nav>
 
 

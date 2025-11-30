@@ -474,4 +474,99 @@ body{
 
 #dots2 span.active {
     background: var(--accent-blue);
+  
+}
+/* AUMENTAR TAMAÑO DEL MENÚ */
+.navbar a,
+.nav-links a,
+.dropdown-toggle {
+    font-size: 14px;      /* tamaño del texto */
+    font-weight: 700;     /* letra más gruesa */
+}
+
+/* Aumentar espacio del menú */
+.navbar {
+    padding: 20px 30px;   /* más alto */
+}
+
+/* Ajustar separación entre items */
+.nav-links {
+    gap: 30px;            /* más separación */
+}
+/* NAVBAR alineado correctamente */
+
+.navbar {
+    background: #ffffff;
+    padding: 15px 0;
+    border-bottom: 1px solid #e5e5e5;
+}
+
+.navbar .container {
+    width: 90%;
+    margin: auto;
+    display: flex;
+    justify-content: space-between;  /* <--- IZQUIERDA Y DERECHA */
+    align-items: center;
+}
+
+.logo a {
+    font-size: 26px;
+    font-weight: 700;
+    color: #9be0ff;
+    text-decoration: none;
+}
+
+.nav-links {
+    list-style: none;
+    display: flex;
+    gap: 25px;
+    align-items: center;
+}
+
+.nav-links li a {
+    text-decoration: none;
+    color: #111;
+    font-size: 16px;
+    font-weight: 600;
+}
+
+.nav-links li a:hover {
+    color: #555;
+}
+
+/* Dropdown */
+.dropdown {
+    position: relative;
+}
+
+.dropdown-toggle {
+    background: none;
+    border: none;
+    font-size: 16px;
+    cursor: pointer;
+    font-weight: 600;
+}
+
+.dropdown-menu {
+    display: none;
+    position: absolute;
+    background: white;
+    top: 30px;
+    right: 0;
+    list-style: none;
+    padding: 10px;
+    border-radius: 8px;
+    box-shadow: 0 3px 8px rgba(0,0,0,0.15);
+}
+
+.dropdown:hover .dropdown-menu {
+    display: block;
+}
+
+.dropdown-menu li {
+    padding: 5px 0;
+}
+
+.dropdown-menu li a {
+    font-size: 15px;
 }
