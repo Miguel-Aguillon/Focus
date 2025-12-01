@@ -7,46 +7,56 @@ use CodeIgniter\Router\RouteCollection;
  */
 $routes->get('/', 'Home::index');
 
-//Inicio
-$routes->get('/inicio', 'Inicio::inicio');
 
-//Login
-$routes->get('/login', 'Login::login');
+// Rutas del menú
 
-//Logros
-$routes->get('/logros', 'Logros::logros');
+// test base de datos
+$routes->get('/test_db', 'TestDB::index');
 
-//Niveles
-$routes->get('/niveles','Niveles::niveles');
 
-//Categorias
-$routes->get('/categorias', 'Categorias::categorias');
+$routes->get('/', 'Inicio::index');
+$routes->get('/categorias', 'Categorias::index');
+$routes->get('/inicio', 'Inicio::index');
+$routes->get('/login', 'Login::index');
+$routes->post('/login/autenticar', 'Login::autenticar');
+$routes->get('/logout', 'Login::logout');
+$routes->get('/registro', 'Registro::index');
+$routes->post('/registro/registrar', 'Registro::registrar');
+$routes->get('/perfil', 'Perfil::index');
+$routes->get('/niveles', 'Niveles::index');
+$routes->get('/logros', 'Logros::index');
+$routes->get('/retos', 'Retos::index');
 
-//Logros
-$routes->get('/logros','Logros::logros');
+//auth o verificacion 
+$routes->post('auth/loginPost', 'Auth::loginPost');
+$routes->get('auth/logout', 'Auth::logout');
 
-//Retos
-$routes->get('/retos', 'Retos::retos');
+// categorias
+$routes->get('categorias', 'Categorias::index');
 
-//Configuracion
-$routes->get('/configuracion','Configuracion::configuracion');
+//rutas para registro
+// Registro de usuario
+$routes->get('registro', 'Registro::index');
+$routes->post('registro/guardar', 'Registro::guardar');
 
-//Lecciones
-$routes->get('/lecciones','Lecciones::lecciones');
+// Vista de registro exitoso
+$routes->get('registroexitoso', function () {
+    return view('registroexitoso');
+});
 
 //Perfil
-$routes->get('/perfil','Perfil::perfil');
-
-//Registro
-$routes->get('/registro','Registro::registro');
-
-// Rutas dek menú
-$routes->get('/categorias', 'Opciones::categorias');
-$routes->get('/niveles', 'Opciones::niveles');
-$routes->get('/retos', 'Opciones::retos');
-$routes->get('/logros', 'Opciones::logros');
-$routes->get('/lecciones', 'Opciones::lecciones');
-$routes->get('/perfil', 'Usuarios::perfil');
-$routes->get('/registro', 'Auth::registro');
-$routes->get('/login', 'Auth::login');
-$routes->get('/configuracion', 'Usuarios::configuracion');
+$routes->get('perfil', 'Perfil::index');
+//Rutas de apartados de lecciones
+$routes->get('lecciones/(:num)', 'Lecciones::listado/$1');
+$routes->get('lecciones/detalle/(:num)', 'Lecciones::detalle/$1');
+$routes->get('lecciones/completar/(:num)', 'Lecciones::completar/$1');
+$routes->get('lecciones/quiz/(:num)', 'Lecciones::quiz/$1');
+$routes->post('lecciones/evaluar', 'Lecciones::evaluar');
+//ruta para guardar registro
+$routes->post('registro/guardar', 'Registro::guardar');
+// Lecciones por categoría
+$routes->get('lecciones/(:segment)', 'Lecciones::categoria/$1');
+// Retos diarios
+$routes->get('retos', 'Retos::index');
+// Configuración
+$routes->get('configuracion', 'Configuracion::index');

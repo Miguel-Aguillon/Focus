@@ -399,3 +399,16 @@ body{
   transform: scale(1.02);
   box-shadow: 0 8px 20px rgba(0,0,0,0.25);
 }
+.modal-bg {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(0,0,0,0.4);
+    display: none;
+    justify-content: center;
+    align-items: center;
+    backdrop-filter: blur(5px);
+    z-index: 9999; /* ← ESTA ES LA LÍNEA QUE SOLUCIONA TODO */
+}

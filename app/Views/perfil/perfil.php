@@ -1,136 +1,283 @@
-
+<?php
+$progress = isset($nivel) && is_numeric($nivel) ? min(100, max(0, ($nivel - 1) * 10)) : 0;
+?>
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Mi Perfil - FocusLearn</title>
+  <meta charset="UTF-8">
+  <title>Mi Perfil - FocusLearn</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style>
-        body {
-            margin: 0;
-            padding: 0;
-            font-family: Arial, sans-serif;
-            background: #e3efff;
-        }
+  <style>
+    /* ---------- RESET ---------- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        .header {
-            width: 100%;
-            background: #4a90e2;
-            padding: 15px;
-            color: white;
-            font-size: 20px;
-            font-weight: bold;
-            text-align: center;
-        }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffffff, #A7C7E7);
+      color: #000;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
 
-        .container {
-            width: 90%;
-            max-width: 900px;
-            margin: 30px auto;
-            background: #ffffff;
-            padding: 30px;
-            border-radius: 18px;
-            box-shadow: 0 4px 10px rgba(0,0,0,0.2);
-        }
+    /* ---------- HEADER ---------- */
+    header {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        .profile-pic {
-            width: 120px;
-            height: 120px;
-            border-radius: 50%;
-            background: #bcd7ff;
-            margin: 0 auto 20px auto;
-            display: block;
-            box-shadow: 0 0 10px rgba(0,0,0,0.2);
-        }
+    header h2 {
+      font-weight: 700;
+      font-size: 22px;
+    }
 
-        h1 {
-            text-align: center;
-            margin-bottom: 10px;
-            color: #333;
-        }
+    header a {
+      color: #000;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+    }
 
-        .info-box {
-            background: #f3f8ff;
-            padding: 20px;
-            margin: 20px 0;
-            border-radius: 15px;
-            border-left: 5px solid #4a90e2;
-        }
+    header a:hover {
+      color: #007bff;
+    }
 
-        .info-item {
-            font-size: 18px;
-            margin: 8px 0;
-        }
+    /* ---------- CONTENIDO PRINCIPAL ---------- */
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 20px;
+      animation: fadeIn 1s ease-in-out;
+    }
 
-        .stats {
-            background: #ecf2ff;
-            padding: 20px;
-            border-radius: 15px;
-            margin-top: 25px;
-        }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
 
-        .stats-title {
-            font-size: 20px;
-            margin-bottom: 10px;
-            font-weight: bold;
-            color: #2e4f84;
-        }
+    h1 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 20px;
+      text-align: center;
+      color: #000;
+    }
 
-        .options {
-            margin-top: 30px;
-            display: flex;
-            justify-content: space-around;
-        }
+    .profile-card {
+      background: rgba(255, 255, 255, 0.9);
+      border-radius: 25px;
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.1);
+      padding: 40px;
+      width: 90%;
+      max-width: 900px;
+      text-align: center;
+      transition: 0.3s;
+    }
 
-        .button {
-            padding: 12px 25px;
-            background: #4a90e2;
-            color: white;
-            border-radius: 10px;
-            text-decoration: none;
-            font-weight: bold;
-            box-shadow: 0 2px 5px rgba(0,0,0,0.2);
-            transition: 0.3s;
-        }
+    .avatar {
+      width: 120px;
+      height: 120px;
+      border-radius: 50%;
+      background: #A7C7E7;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      font-size: 50px;
+      margin: 0 auto 15px;
+      color: #000;
+    }
 
-        .button:hover {
-            background: #346bb5;
-        }
-    </style>
+    .user-info h2 {
+      font-size: 26px;
+      font-weight: 700;
+      margin-bottom: 5px;
+    }
+
+    .user-info p {
+      color: #333;
+      font-size: 15px;
+      margin-bottom: 5px;
+    }
+
+    /* ---------- ESTADÍSTICAS ---------- */
+    .stats {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+      gap: 25px;
+      margin-top: 40px;
+    }
+
+    .stat-card {
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 20px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+      padding: 25px;
+      transition: 0.3s ease;
+    }
+
+    .stat-card:hover {
+      transform: translateY(-5px);
+      box-shadow: 0 10px 25px rgba(0,0,0,0.2);
+    }
+
+    .stat-card h3 {
+      color: #000;
+      font-size: 20px;
+      margin-bottom: 10px;
+    }
+
+    .progress-bar {
+      background: #ddd;
+      border-radius: 10px;
+      height: 12px;
+      overflow: hidden;
+    }
+
+    .progress {
+      background: #007bff;
+      height: 12px;
+      width: 0%;
+      transition: width 0.5s ease;
+    }
+
+    /* ---------- LOGROS ---------- */
+    .logros {
+      margin-top: 40px;
+      background: rgba(255, 255, 255, 0.8);
+      border-radius: 20px;
+      padding: 25px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.1);
+    }
+
+    .logros h3 {
+      color: #000;
+      font-size: 22px;
+      margin-bottom: 15px;
+    }
+
+    .logros ul {
+      list-style: none;
+      padding: 0;
+    }
+
+    .logros li {
+      padding: 10px 0;
+      border-bottom: 1px solid #ddd;
+      font-size: 16px;
+    }
+
+    .logros li:last-child {
+      border-bottom: none;
+    }
+
+    /* ---------- BOTÓN NUEVO ---------- */
+    .start-btn-container {
+      margin-top: 40px;
+      text-align: center;
+    }
+
+    .start-btn {
+      background: #007bff;
+      color: #fff;
+      padding: 15px 35px;
+      font-size: 20px;
+      font-weight: bold;
+      text-decoration: none;
+      border-radius: 12px;
+      box-shadow: 0 6px 15px rgba(0,0,0,0.2);
+      transition: 0.3s ease;
+      display: inline-block;
+    }
+
+    .start-btn:hover {
+      background: #0056b3;
+      transform: translateY(-3px);
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      text-align: center;
+      padding: 15px 0;
+      font-size: 14px;
+      color: #333;
+      background: rgba(255,255,255,0.7);
+      border-top: 1px solid #ccc;
+    }
+  </style>
 </head>
 
 <body>
 
-    <div class="header">
-        Mi Perfil
+  <header>
+    <h2>FocusLearn</h2>
+    <a href="<?= base_url('/') ?>"><i class="fa-solid fa-house"></i> Inicio</a>
+  </header>
+
+  <main>
+    <h1>Mi Perfil</h1>
+
+    <div class="profile-card">
+      <div class="avatar">👤</div>
+      <div class="user-info">
+        <h2><?= esc($usuario['nombre']) ?></h2>
+        <p><strong>Email:</strong> <?= esc($usuario['correo']) ?></p>
+        <p><strong>Nivel:</strong> <?= $nivel ?></p>
+      </div>
+
+      <div class="stats">
+        <div class="stat-card">
+          <h3>XP Total</h3>
+          <p><?= $xp_total ?> ⭐</p>
+        </div>
+
+        <div class="stat-card">
+          <h3>Racha</h3>
+          <p><?= $racha ?> 🔥 días</p>
+        </div>
+
+        <div class="progress-bar">
+          <div class="progress" style="width: <?= esc($progress) ?>%;"></div>
+        </div>
+
+        <p>Nivel <?= $nivel ?></p>
+      </div>
     </div>
 
-    <div class="container">
-
-        <img src="https://cdn-icons-png.flaticon.com/512/149/149071.png" class="profile-pic">
-
-        <h1>Usuario Focus</h1>
-
-        <div class="info-box">
-            <p class="info-item"><b>Nombre:</b> Usuario Focus</p>
-            <p class="info-item"><b>Nivel:</b> Principiante</p>
-            <p class="info-item"><b>Días sin procrastinar:</b> 3</p>
-        </div>
-
-        <div class="stats">
-            <p class="stats-title">Estadísticas</p>
-            <p>Retos completados: <b>5</b></p>
-            <p>Lecciones completadas: <b>12</b></p>
-            <p>Logros obtenidos: <b>4</b></p>
-        </div>
-
-        <div class="options">
-            <a href="#" class="button">Configuración</a>
-            <a href="#" class="button">Mis Logros</a>
-            <a href="#" class="button">Niveles</a>
-        </div>
-
+    <!-- BOTÓN PARA IR A CATEGORÍAS -->
+    <div class="start-btn-container">
+      <a href="<?= base_url('categorias') ?>" class="start-btn">¡Empieza ya!</a>
     </div>
+
+    <div class="logros">
+      <h3>🏆 Logros Desbloqueados</h3>
+      <?php if (!empty($logros)): ?>
+        <ul>
+          <?php foreach ($logros as $l): ?>
+            <li><?= esc($l) ?></li>
+          <?php endforeach; ?>
+        </ul>
+      <?php else: ?>
+        <p>Aún no tienes logros. ¡Sigue aprendiendo! 🚀</p>
+      <?php endif; ?>
+    </div>
+
+  </main>
+
+  <footer>
+    © <?= date('Y') ?> FocusLearn. Todos los derechos reservados.
+  </footer>
 
 </body>
 </html>

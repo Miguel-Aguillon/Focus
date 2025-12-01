@@ -1,10 +1,15 @@
 <?php
 
 namespace App\Controllers;
+use App\Models\LogrosModel;
 
-class Logros extends BaseController{
+class Logros extends BaseController
+{
+    public function index()
+    {
+        $logroModel = new LogrosModel();
+        $data['logros'] = $logroModel->findAll();
 
-    public function Logros(){
-        return view('/logros/logros');
+        return view('logros/logros', $data);
     }
 }

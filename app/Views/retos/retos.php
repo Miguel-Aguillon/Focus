@@ -2,180 +2,228 @@
 <html lang="es">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Retos - FocusLearn</title>
+  <meta charset="UTF-8">
+  <title>Retos - FocusLearn</title>
 
-    <!-- Iconos -->
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <!-- Iconos -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 
-    <style>
-        :root {
-            --pastel-blue: #cfeffd;
-            --accent-blue: #9be0ff;
-            --azul-oscuro: #4cbbee;
-            --white: #ffffff;
-            --black: #0b0b0b;
-            --muted: #6b7280;
-        }
+  <style>
+    /* ---------- RESET ---------- */
+    * {
+      box-sizing: border-box;
+      margin: 0;
+      padding: 0;
+    }
 
-        body {
-            margin: 0;
-            font-family: Arial, sans-serif;
-            background: var(--pastel-blue);
-        }
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffffff, #A7C7E7);
+      color: #000;
+      display: flex;
+      flex-direction: column;
+      min-height: 100vh;
+    }
 
-        header {
-            background: var(--azul-oscuro);
-            padding: 15px 20px;
-            color: var(--white);
-            display: flex;
-            align-items: center;
-            justify-content: space-between;
-        }
+    /* ---------- HEADER ---------- */
+    header {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 8px rgba(0, 0, 0, 0.1);
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        header h2 {
-            margin: 0;
-            font-size: 22px;
-        }
+    header h2 {
+      font-weight: 700;
+      font-size: 22px;
+    }
 
-        header a {
-            color: var(--white);
-            text-decoration: none;
-            font-size: 18px;
-        }
+    header a {
+      color: #000;
+      font-weight: 600;
+      text-decoration: none;
+      transition: 0.3s;
+    }
 
-        main {
-            padding: 30px;
-            text-align: center;
-        }
+    header a:hover {
+      color: #007bff;
+    }
 
-        h1 {
-            margin-bottom: 10px;
-            color: var(--black);
-        }
+    /* ---------- CONTENIDO PRINCIPAL ---------- */
+    main {
+      flex: 1;
+      display: flex;
+      flex-direction: column;
+      align-items: center;
+      padding: 60px 20px;
+      animation: fadeIn 1s ease-in-out;
+    }
 
-        .subtitle {
-            color: var(--muted);
-            font-size: 18px;
-            margin-bottom: 30px;
-        }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
 
-        .retos-grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
-            gap: 25px;
-        }
+    h1 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 10px;
+      text-align: center;
+      color: #000;
+    }
 
-        .reto-card {
-            background: var(--white);
-            padding: 25px;
-            border-radius: 20px;
-            box-shadow: 0 4px 12px rgba(0, 0, 0, 0.15);
-            text-align: left;
-            position: relative;
-            transition: transform 0.2s;
-        }
+    p.subtitle {
+      text-align: center;
+      max-width: 700px;
+      font-size: 16px;
+      color: #333;
+      margin-bottom: 40px;
+    }
 
-        .reto-card:hover {
-            transform: translateY(-6px);
-        }
+    /* ---------- GRID DE RETOS ---------- */
+    .retos-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      width: 100%;
+      max-width: 1000px;
+    }
 
-        .reto-card i {
-            font-size: 35px;
-            color: var(--azul-oscuro);
-            margin-bottom: 10px;
-        }
+    /* ---------- TARJETAS ---------- */
+    .reto-card {
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      padding: 30px 25px;
+      transition: all 0.3s ease;
+      backdrop-filter: blur(10px);
+      text-align: left;
+      cursor: pointer;
+    }
 
-        .reto-card h3 {
-            margin: 0 0 10px;
-            color: var(--black);
-        }
+    .reto-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
 
-        .reto-card p {
-            color: var(--muted);
-            font-size: 15px;
-            margin-bottom: 20px;
-        }
+    .reto-card i {
+      font-size: 40px;
+      color: #000;
+      margin-bottom: 15px;
+    }
 
-        .btn-completar {
-            display: inline-block;
-            padding: 10px 15px;
-            background: var(--azul-oscuro);
-            color: var(--white);
-            text-decoration: none;
-            border-radius: 10px;
-            font-size: 14px;
-            transition: background 0.3s;
-        }
+    .reto-card h3 {
+      font-size: 22px;
+      margin-bottom: 10px;
+      color: #000;
+    }
 
-        .btn-completar:hover {
-            background: var(--accent-blue);
-        }
+    .reto-card p {
+      color: #333;
+      font-size: 15px;
+      margin-bottom: 20px;
+      line-height: 1.5;
+    }
 
-        footer {
-            margin-top: 40px;
-            padding: 15px;
-            background: var(--white);
-            text-align: center;
-            color: var(--muted);
-        }
-    </style>
+    /* ---------- BOTÓN ---------- */
+    .btn-completar {
+      display: inline-block;
+      padding: 10px 20px;
+      background: #000;
+      color: #fff;
+      font-weight: 600;
+      border-radius: 8px;
+      text-decoration: none;
+      transition: 0.3s ease;
+    }
+
+    .btn-completar:hover {
+      background: #333;
+      transform: scale(1.05);
+    }
+
+    /* ---------- FOOTER ---------- */
+    footer {
+      text-align: center;
+      padding: 15px 0;
+      font-size: 14px;
+      color: #333;
+      background: rgba(255,255,255,0.7);
+      border-top: 1px solid #ccc;
+    }
+
+    /* ---------- RESPONSIVE ---------- */
+    @media (max-width: 480px) {
+      h1 {
+        font-size: 28px;
+      }
+      p.subtitle {
+        font-size: 14px;
+      }
+    }
+  </style>
 </head>
 
 <body>
 
-    <header>
-        <h2>FocusLearn</h2>
-        <a href="<?= base_url('/') ?>"><i class="fa-solid fa-house"></i> Inicio</a>
-    </header>
+  <header>
+    <h2>FocusLearn</h2>
+    <a href="<?= base_url('/') ?>"><i class="fa-solid fa-house"></i> Inicio</a>
+  </header>
 
-    <main>
-        <h1>Retos del Día</h1>
-        <p class="subtitle">Supera estos desafíos para mejorar tu enfoque y mantener tu racha sin procrastinar.</p>
+  <main>
 
-        <div class="retos-grid">
+    <h1>Retos del Día</h1>
+    <p class="subtitle">
+      Supera estos desafíos para mejorar tu enfoque y mantener tu racha sin procrastinar.
+    </p>
 
-            <div class="reto-card">
-                <i class="fa-solid fa-stopwatch"></i>
-                <h3>Reto 1: 25 Minutos Enfocado</h3>
-                <p>Realiza una sesión de concentración sin interrupciones usando técnica Pomodoro.</p>
-                <a href="#" class="btn-completar">Completar reto</a>
-            </div>
+    <div class="retos-grid">
 
-            <div class="reto-card">
-                <i class="fa-solid fa-list-check"></i>
-                <h3>Reto 2: Lista de 3 tareas</h3>
-                <p>Define y completa al menos tres tareas importantes del día.</p>
-                <a href="#" class="btn-completar">Completar reto</a>
-            </div>
+      <div class="reto-card">
+        <i class="fa-solid fa-stopwatch"></i>
+        <h3>Reto 1: 25 Minutos Enfocado</h3>
+        <p>Realiza una sesión de concentración sin interrupciones usando técnica Pomodoro.</p>
+        <a href="#" class="btn-completar">Completar reto</a>
+      </div>
 
-            <div class="reto-card">
-                <i class="fa-solid fa-brain"></i>
-                <h3>Reto 3: Mini prueba de memoria</h3>
-                <p>Ejercita tu mente con un ejercicio de memoria rápida.</p>
-                <a href="#" class="btn-completar">Completar reto</a>
-            </div>
+      <div class="reto-card">
+        <i class="fa-solid fa-list-check"></i>
+        <h3>Reto 2: Lista de 3 tareas</h3>
+        <p>Define y completa al menos tres tareas importantes del día.</p>
+        <a href="#" class="btn-completar">Completar reto</a>
+      </div>
 
-            <div class="reto-card">
-                <i class="fa-solid fa-bolt"></i>
-                <h3>Reto 4: Sin redes por 1 hora</h3>
-                <p>Desconéctate del celular y redes sociales durante una hora completa.</p>
-                <a href="#" class="btn-completar">Completar reto</a>
-            </div>
+      <div class="reto-card">
+        <i class="fa-solid fa-brain"></i>
+        <h3>Reto 3: Mini prueba de memoria</h3>
+        <p>Ejercita tu mente con un ejercicio de memoria rápida.</p>
+        <a href="#" class="btn-completar">Completar reto</a>
+      </div>
 
-            <div class="reto-card">
-                <i class="fa-solid fa-book-open-reader"></i>
-                <h3>Reto 5: Lección recomendada</h3>
-                <p>Abre una lección al azar y aprende algo nuevo hoy.</p>
-                <a href="#" class="btn-completar">Completar reto</a>
-            </div>
+      <div class="reto-card">
+        <i class="fa-solid fa-bolt"></i>
+        <h3>Reto 4: Sin redes por 1 hora</h3>
+        <p>Desconéctate del celular y redes sociales durante una hora completa.</p>
+        <a href="#" class="btn-completar">Completar reto</a>
+      </div>
 
-        </div>
-    </main>
+      <div class="reto-card">
+        <i class="fa-solid fa-book-open-reader"></i>
+        <h3>Reto 5: Lección recomendada</h3>
+        <p>Abre una lección al azar y aprende algo nuevo hoy.</p>
+        <a href="#" class="btn-completar">Completar reto</a>
+      </div>
 
-    <footer>
-        © <?= date('Y') ?> FocusLearn. Todos los derechos reservados.
-    </footer>
+    </div>
+  </main>
+
+  <footer>
+    © <?= date('Y') ?> FocusLearn. Todos los derechos reservados.
+  </footer>
 
 </body>
 

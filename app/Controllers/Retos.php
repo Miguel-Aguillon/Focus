@@ -1,11 +1,15 @@
 <?php
 
 namespace App\Controllers;
+use App\Models\RetoModel;
 
-class Retos extends BaseController{
+class Retos extends BaseController
+{
+    public function index()
+    {
+        $retoModel = new RetoModel();
+        $data['retos'] = $retoModel->findAll();
 
-    public function Retos(){
-        return view('/retos/retos');
-        
+        return view('retos/retos', $data);
     }
 }

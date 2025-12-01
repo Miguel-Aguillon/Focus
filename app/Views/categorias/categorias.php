@@ -1,157 +1,135 @@
 <!DOCTYPE html>
 <html lang="es">
 <head>
-    <meta charset="UTF-8">
-    <title>Categorías - FocusLearn</title>
+  <meta charset="UTF-8">
+  <title>Categorías - FocusLearn</title>
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+  <style>
+    body {
+      font-family: 'Poppins', sans-serif;
+      background: linear-gradient(135deg, #ffffff, #A7C7E7);
+      color: #000;
+      margin: 0;
+    }
 
-    <style>
-        :root {
-            --pastel-blue: #cfeffd;
-            --accent-blue: #9be0ff;
-            --azul-oscuro: #4cbbee;
-            --white: #ffffff;
-            --black: #0b0b0b;
-            --muted: #6b7280;
-        }
+    header {
+      background: rgba(255, 255, 255, 0.8);
+      backdrop-filter: blur(10px);
+      box-shadow: 0 2px 8px rgba(0,0,0,0.1);
+      padding: 15px 40px;
+      display: flex;
+      justify-content: space-between;
+      align-items: center;
+    }
 
-        body {
-            margin: 0;
-            font-family: Arial, Helvetica, sans-serif;
-            background: var(--pastel-blue);
-            color: var(--black);
-        }
+    header h2 {
+      font-weight: 700;
+      font-size: 22px;
+    }
 
-        header {
-            background: var(--azul-oscuro);
-            padding: 15px 25px;
-            display: flex;
-            justify-content: space-between;
-            align-items: center;
-            color: var(--white);
-            box-shadow: 0 3px 10px rgba(0,0,0,0.2);
-        }
+    header a {
+      color: #000;
+      font-weight: 600;
+      text-decoration: none;
+    }
 
-        header h2 {
-            margin: 0;
-        }
+    header a:hover { color: #007bff; }
 
-        header a {
-            color: var(--white);
-            text-decoration: none;
-            font-weight: bold;
-            background: var(--accent-blue);
-            padding: 8px 15px;
-            border-radius: 10px;
-        }
+    main {
+      padding: 60px 20px;
+      text-align: center;
+      animation: fadeIn 1s ease-in-out;
+    }
 
-        /* Contenedor */
-        .container {
-            width: 90%;
-            max-width: 1200px;
-            margin: 40px auto;
-        }
+    @keyframes fadeIn {
+      from {opacity: 0; transform: translateY(20px);}
+      to {opacity: 1; transform: translateY(0);}
+    }
 
-        /* Título principal */
-        h1 {
-            text-align: center;
-            margin-bottom: 30px;
-            font-size: 32px;
-            color: var(--black);
-        }
+    h1 {
+      font-size: 36px;
+      font-weight: 700;
+      margin-bottom: 10px;
+    }
 
-        /* Grid */
-        .grid {
-            display: grid;
-            grid-template-columns: repeat(auto-fill, minmax(260px, 1fr));
-            gap: 25px;
-        }
+    p.subtitle {
+      max-width: 700px;
+      margin: 0 auto 40px;
+      font-size: 16px;
+      color: #333;
+    }
 
-        /* Tarjeta */
-        .card {
-            background: var(--white);
-            padding: 25px;
-            border-radius: 20px;
-            box-shadow: 0 4px 15px rgba(0,0,0,0.15);
-            transition: 0.25s ease;
-            border: 2px solid var(--accent-blue);
-        }
+    .lecciones-grid {
+      display: grid;
+      grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+      gap: 25px;
+      max-width: 1000px;
+      margin: 0 auto;
+    }
 
-        .card:hover {
-            transform: translateY(-6px);
-            box-shadow: 0 8px 20px rgba(0,0,0,0.25);
-            border-color: var(--azul-oscuro);
-        }
+    .leccion-card {
+      background: rgba(255, 255, 255, 0.85);
+      border-radius: 20px;
+      box-shadow: 0 8px 20px rgba(0, 0, 0, 0.1);
+      padding: 25px;
+      transition: 0.3s;
+    }
 
-        .card h3 {
-            font-size: 22px;
-            margin-bottom: 10px;
-            color: var(--azul-oscuro);
-        }
+    .leccion-card:hover {
+      transform: translateY(-8px);
+      box-shadow: 0 10px 25px rgba(0, 0, 0, 0.2);
+    }
 
-        .card p {
-            margin: 0;
-            color: var(--muted);
-            font-size: 15px;
-        }
+    .leccion-card h3 { color: #000; }
+    .leccion-card p { color: #444; }
 
-        footer {
-            text-align: center;
-            padding: 20px;
-            margin-top: 40px;
-            background: var(--white);
-            color: var(--muted);
-        }
-    </style>
+    .btn {
+      display: inline-block;
+      margin-top: 10px;
+      background: #000;
+      color: #fff;
+      padding: 10px 20px;
+      border-radius: 10px;
+      text-decoration: none;
+      transition: 0.3s;
+    }
+
+    .btn:hover {
+      background: #333;
+      transform: scale(1.05);
+    }
+
+    footer {
+      text-align: center;
+      padding: 15px;
+      font-size: 14px;
+      background: rgba(255,255,255,0.7);
+      border-top: 1px solid #ccc;
+    }
+  </style>
 </head>
 
 <body>
-
-<header>
+  <header>
     <h2>FocusLearn</h2>
-    <a href="<?= base_url('/') ?>">Inicio</a>
-</header>
+    <a href="<?= base_url('categorias') ?>"><i class="fa-solid fa-arrow-left"></i> Volver</a>
+  </header>
 
-<div class="container">
-    <h1>Categorías de Aprendizaje</h1>
+  <main>
+    <h1><?= esc($categorias) ?></h1>
+    <p class="subtitle"><?= esc($descripcion) ?></p>
 
-    <div class="grid">
-
-        <div class="card">
-            <h3>Historia</h3>
-            <p>Eventos memorables, personajes clave y culturas del mundo.</p>
+    <div class="lecciones-grid">
+      <?php foreach ($lecciones as $l): ?>
+        <div class="leccion-card">
+          <h3><?= esc($l['titulo']) ?></h3>
+          <p>Nivel: <?= esc($l['nivel']) ?></p>
+          <a href="#" class="btn">Iniciar Lección</a>
         </div>
-
-        <div class="card">
-            <h3>Ciencia</h3>
-            <p>Biología, química, física y curiosidades científicas.</p>
-        </div>
-
-        <div class="card">
-            <h3>Geografía</h3>
-            <p>Países, capitales, mapas, culturas y ubicaciones.</p>
-        </div>
-
-        <div class="card">
-            <h3>Arte & Cultura</h3>
-            <p>Música, pintura, literatura y expresiones culturales.</p>
-        </div>
-
-        <div class="card">
-            <h3>Tecnología</h3>
-            <p>Conceptos, avances y cultura digital moderna.</p>
-        </div>
-
-        <div class="card">
-            <h3>Retos Diarios</h3>
-            <p>Mini desafíos para desarrollar hábitos y disciplina.</p>
-        </div>
-
+      <?php endforeach; ?>
     </div>
-</div>
+  </main>
 
-<footer>
-    © <?= date('Y') ?> FocusLearn — Todos los derechos reservados.
-</footer>
-
+  <footer>© <?= date('Y') ?> FocusLearn</footer>
 </body>
 </html>

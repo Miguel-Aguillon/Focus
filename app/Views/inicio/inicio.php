@@ -28,7 +28,7 @@
           <li><a href="<?= base_url('niveles') ?>">Niveles</a></li>
           <li><a href="<?= base_url('retos') ?>">Retos</a></li>
           <li><a href="<?= base_url('logros') ?>">Logros</a></li>
-          <li><a href="<?= base_url('lecciones') ?>">Lecciones</a></li>
+          <li><a href="<?= base_url('lecciones') ?>">Lcciones</a></li>
           <li><a href="<?= base_url('perfil') ?>">Perfil</a></li>
           <li><a href="<?= base_url('registro') ?>">Registro</a></li>
           <li><a href="<?= base_url('login') ?>">Login</a></li>
@@ -36,7 +36,7 @@
         </ul>
       </li>
     </ul>
-  </div>
+  </div>e
 </nav>
 
 

@@ -1,10 +1,15 @@
 <?php
 
 namespace App\Controllers;
+use App\Models\NivelModel;
 
-Class Niveles extends BaseController{
+class Niveles extends BaseController
+{
+    public function index()
+    {
+        $nivelModel = new NivelModel();
+        $data['niveles'] = $nivelModel->findAll();
 
-    public function Niveles(){
-        return view('/niveles/niveles');
+        return view('niveles/niveles', $data);
     }
 }
