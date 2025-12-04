@@ -5,48 +5,58 @@ use CodeIgniter\Router\RouteCollection;
 /**
  * @var RouteCollection $routes
  */
+
+// Página principal
 $routes->get('/', 'Home::index');
 
 //Inicio
 $routes->get('/inicio', 'Inicio::inicio');
 
-//Login
-$routes->get('/login', 'Login::login');
+//login-log out
+$routes->get('login', 'Auth::login');                    // para mostrar el formulario de login
+$routes->post('auth/loginPost', 'Auth::loginPost');      // para procesar el POST
+$routes->get('logout', 'Auth::logout');                  // para cerrar sesión
 
-//Logros
+//logros
 $routes->get('/logros', 'Logros::logros');
 
-//Niveles
+//niveles
 $routes->get('/niveles','Niveles::niveles');
 
-//Categorias
+//categorias
 $routes->get('/categorias', 'Categorias::categorias');
 
-//Logros
-$routes->get('/logros','Logros::logros');
-
-//Retos
+//retos
 $routes->get('/retos', 'Retos::retos');
 
-//Configuracion
+//congiguracion
 $routes->get('/configuracion','Configuracion::configuracion');
 
 //Lecciones
 $routes->get('/lecciones','Lecciones::lecciones');
 
-//Perfil
+//perfil
 $routes->get('/perfil','Perfil::perfil');
 
 //Registro
-$routes->get('/registro','Registro::registro');
+$routes->get('/registro', 'Registro::index');            // mostrar formulario de registro
+$routes->post('/registro/guardar', 'Registro::guardar'); // guardar usuario nuevo
 
-// Rutas dek menú
+
+// menú (opciones)
+
 $routes->get('/categorias', 'Opciones::categorias');
 $routes->get('/niveles', 'Opciones::niveles');
 $routes->get('/retos', 'Opciones::retos');
 $routes->get('/logros', 'Opciones::logros');
 $routes->get('/lecciones', 'Opciones::lecciones');
 $routes->get('/perfil', 'Usuarios::perfil');
-$routes->get('/registro', 'Auth::registro');
-$routes->get('/login', 'Auth::login');
 $routes->get('/configuracion', 'Usuarios::configuracion');
+
+
+// Dashboard Admin
+$routes->get('admin', 'Admin::index', ['filter' => 'adminAuth']);
+$routes->get('admin/dashboard', 'Admin::dashboard', ['filter' => 'adminAuth']);
+$routes->get('admin/editarRol/(:num)', 'Admin::editarRol/$1', ['filter' => 'adminAuth']);
+$routes->post('admin/actualizarRol/(:num)', 'Admin::actualizarRol/$1', ['filter' => 'adminAuth']);
+$routes->get('admin/eliminarUsuario/(:num)', 'Admin::eliminarUsuario/$1', ['filter' => 'adminAuth']);

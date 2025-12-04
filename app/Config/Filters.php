@@ -34,6 +34,8 @@ class Filters extends BaseFilters
         'forcehttps'    => ForceHTTPS::class,
         'pagecache'     => PageCache::class,
         'performance'   => PerformanceMetrics::class,
+        'adminAuth'     => \App\Filters\AdminAuth::class,
+
     ];
 
     /**
@@ -107,4 +109,27 @@ class Filters extends BaseFilters
      * @var array<string, array<string, list<string>>>
      */
     public array $filters = [];
+}
+
+
+namespace App\Filters;
+
+use CodeIgniter\HTTP\RequestInterface;
+use CodeIgniter\HTTP\ResponseInterface;
+use CodeIgniter\Filters\FilterInterface;
+
+class AdminFilter implements FilterInterface
+{
+    public function before(RequestInterface $request, $arguments = null)
+    {
+        $session = session();
+        if (!$session->get('is_logged_in') || $session->get('rol') !== 'admin') {
+            return redirect()->to(base_url('login'));
+        }
+    }
+
+    public function after(RequestInterface $request, ResponseInterface $response, $arguments = null)
+    {
+        // nada
+    }
 }

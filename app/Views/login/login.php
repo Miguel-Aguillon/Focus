@@ -4,13 +4,7 @@
   <meta charset="UTF-8">
   <title>Iniciar Sesión - FocusLearn</title>
   <style>
-    /* -------- RESET -------- */
-    * {
-      box-sizing: border-box;
-      margin: 0;
-      padding: 0;
-    }
-
+    * { box-sizing: border-box; margin: 0; padding: 0; }
     body {
       font-family: 'Poppins', sans-serif;
       background: linear-gradient(135deg, #A7C7E7, #ffffff);
@@ -20,8 +14,6 @@
       height: 100vh;
       overflow: hidden;
     }
-
-    /* -------- CONTENEDOR LOGIN -------- */
     .login-container {
       background: rgba(255, 255, 255, 0.8);
       backdrop-filter: blur(10px);
@@ -33,25 +25,12 @@
       text-align: center;
       animation: fadeIn 1s ease-in-out;
     }
-
     @keyframes fadeIn {
       from {opacity: 0; transform: translateY(20px);}
       to {opacity: 1; transform: translateY(0);}
     }
-
-    .login-container h1 {
-      font-size: 30px;
-      font-weight: 700;
-      color: #000;
-      margin-bottom: 25px;
-    }
-
-    /* -------- INPUTS -------- */
-    .input-group {
-      position: relative;
-      margin-bottom: 20px;
-    }
-
+    .login-container h1 { font-size: 30px; font-weight: 700; color: #000; margin-bottom: 25px; }
+    .input-group { position: relative; margin-bottom: 20px; }
     .input-group input {
       width: 100%;
       padding: 12px 45px 12px 15px;
@@ -63,21 +42,8 @@
       outline: none;
       transition: 0.3s ease;
     }
-
-    .input-group input:focus {
-      background: #fff;
-      box-shadow: 0 0 0 3px #A7C7E7;
-    }
-
-    .input-group i {
-      position: absolute;
-      right: 15px;
-      top: 12px;
-      color: #555;
-      font-size: 18px;
-    }
-
-    /* -------- BOTÓN -------- */
+    .input-group input:focus { background: #fff; box-shadow: 0 0 0 3px #A7C7E7; }
+    .input-group i { position: absolute; right: 15px; top: 12px; color: #555; font-size: 18px; }
     button {
       width: 100%;
       padding: 12px;
@@ -90,41 +56,16 @@
       cursor: pointer;
       transition: all 0.3s ease;
     }
-
-    button:hover {
-      background: #333;
-      transform: scale(1.03);
-    }
-
-    /* -------- ENLACES -------- */
-    .extra-link {
-      margin-top: 20px;
-      font-size: 14px;
-    }
-
-    .extra-link a {
-      color: #000;
-      text-decoration: none;
-      font-weight: 600;
-      transition: 0.3s;
-    }
-
-    .extra-link a:hover {
-      color: #007bff;
-    }
-
-    /* -------- RESPONSIVE -------- */
+    button:hover { background: #333; transform: scale(1.03); }
+    .extra-link { margin-top: 20px; font-size: 14px; }
+    .extra-link a { color: #000; text-decoration: none; font-weight: 600; transition: 0.3s; }
+    .extra-link a:hover { color: #007bff; }
+    .mensaje { margin-bottom: 15px; color: red; font-weight: 600; }
     @media (max-width: 480px) {
-      .login-container {
-        padding: 30px 20px;
-      }
-      .login-container h1 {
-        font-size: 26px;
-      }
+      .login-container { padding: 30px 20px; }
+      .login-container h1 { font-size: 26px; }
     }
   </style>
-
-  <!-- Íconos (Font Awesome CDN) -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
 </head>
 
@@ -133,14 +74,19 @@
   <div class="login-container">
     <h1>Iniciar Sesión</h1>
 
+    <!-- Mensaje de error si existe -->
+    <?php if(session()->getFlashdata('error')): ?>
+      <div class="mensaje"><?= session()->getFlashdata('error') ?></div>
+    <?php endif; ?>
+
     <form action="<?= base_url('auth/loginPost') ?>" method="post">
       <div class="input-group">
-        <input type="email" name="email" placeholder="Correo electrónico" required>
+        <input type="email" name="correo" placeholder="Correo electrónico" required>
         <i class="fa-solid fa-envelope"></i>
       </div>
 
       <div class="input-group">
-        <input type="password" name="password" placeholder="Contraseña" required>
+        <input type="password" name="contraseña" placeholder="Contraseña" required>
         <i class="fa-solid fa-lock"></i>
       </div>
 
